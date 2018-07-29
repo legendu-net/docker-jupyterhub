@@ -1,6 +1,6 @@
 # [dclong/jupyterhub](https://hub.docker.com/r/dclong/jupyterhub/)
 
-JupyterHub with Python 3 in Docker.
+JupyterHub (with Python 3.5) in Docker.
 **It is recommended that you use the image
 [dclong/jupyterhub-ds](https://hub.docker.com/r/dclong/jupyterhub-ds/)
 for data science related work.**
@@ -17,22 +17,8 @@ Jupyter Notebook: 5.6.0
 NodeJS: 8.11.3
 JupyterLab: 0.33.2
 JupyterHub: 0.9.1
-OpenJDK 8
 Jupyter Kernels:  
-- Python 3.5 (with popular packages)  
-    + numpy scipy pandas dask  
-    + torch torchvision tensorflow keras h2o  
-    + gensim nltk  
-    + scikit-learn xgboost  
-    + matplotlib seaborn bokeh plotly  
-    + tabulate  
-    + JayDeBeApi pymysql pymongo sqlalchemy  
-    + pysocks  
-    + requests[socks] Scrapy beautifulsoup4 wget  
-    + ansible
-- SQL (based on JDBC) via BeakerX 1.0.0
-- Scala 2.11.12 via BeakerX 1.0.0
-- Java 8, Clojure, Groovy, Kotlin via BeakerX 1.0.0 
+- Python 3.5
 
 ## Usage in Linux/Unix
 
