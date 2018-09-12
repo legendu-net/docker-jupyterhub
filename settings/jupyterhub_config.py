@@ -418,7 +418,17 @@ c.Spawner.default_url = '/lab'
 #  This whitelist is used to ensure that sensitive information in the JupyterHub
 #  process's environment (such as `CONFIGPROXY_AUTH_TOKEN`) is not passed to the
 #  single-user server's process.
-#c.Spawner.env_keep = ['PATH', 'PYTHONPATH', 'CONDA_ROOT', 'CONDA_DEFAULT_ENV', 'VIRTUAL_ENV', 'LANG', 'LC_ALL']
+c.Spawner.env_keep = [
+    'PATH', 
+    'PYTHONPATH', 
+    'CONDA_ROOT', 
+    'CONDA_DEFAULT_ENV', 
+    'VIRTUAL_ENV', 
+    'LANG', 
+    'LC_ALL',
+    'JAVA_HOME',
+    'M2_HOME',
+]
 
 ## Extra environment variables to set for the single-user server's process.
 #  
