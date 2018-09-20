@@ -1,6 +1,6 @@
 # [dclong/jupyterhub](https://hub.docker.com/r/dclong/jupyterhub/)
 
-JupyterHub (with Python 3.5) in Docker.
+JupyterHub in Docker.
 **It is recommended that you use the image
 [dclong/jupyterhub-ds](https://hub.docker.com/r/dclong/jupyterhub-ds/)
 for data science related work.**
@@ -10,7 +10,7 @@ please use the **conda3** (correspond to the latest tag) branch instead.
 
 ## Detailed Information
 
-OS: Ubuntu 16.04
+OS: Ubuntu 18.04
 Desktop Environment: None  
 Remote Desktop: None  
 Jupyter Notebook: 5.6.0
