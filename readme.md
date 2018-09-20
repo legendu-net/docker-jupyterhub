@@ -15,10 +15,10 @@ Desktop Environment: None
 Remote Desktop: None  
 Jupyter Notebook: 5.6.0
 NodeJS: 8.11.3
-JupyterLab: 0.33.2
-JupyterHub: 0.9.1
+JupyterLab: 0.34.11
+JupyterHub: 0.9.3
 Jupyter Kernels:  
-- Python 3.5
+- Python 3.6.5
 
 ## Usage in Linux/Unix
 
