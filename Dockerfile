@@ -1,4 +1,4 @@
-FROM dclong/jupyterlab
+FROM dclong/jupyterlab:18.04
 
 RUN npm install -g configurable-http-proxy \
     && pip3 install jupyterhub
