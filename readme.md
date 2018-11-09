@@ -13,12 +13,12 @@ please use the **conda3** (correspond to the latest tag) branch instead.
 OS: Ubuntu 18.04
 Desktop Environment: None  
 Remote Desktop: None  
-Jupyter Notebook: 5.6.0
-NodeJS: 8.11.3
-JupyterLab: 0.34.11
-JupyterHub: 0.9.3
+Jupyter Notebook: 5.6.0  
+NodeJS: 8.11.3  
+JupyterLab: 0.34.11  
+JupyterHub: 0.9.3  
 Jupyter Kernels:  
-- Python 3.6.5
+- Python 3.6.6
 
 ## Usage in Linux/Unix
 
@@ -84,7 +84,7 @@ docker run -d \
     -e DOCKER_GROUP_ID=`id -g` \
     -e DOCKER_ADMIN_USER=`id -un` \
     -e USER_MEM_LIMIT=4G \
-    -v /wwwroot:/workdir \
+    -v /workdir:/workdir \
     -v /home:/home_host \
     dclong/jupyterhub
 ```
@@ -169,3 +169,4 @@ the default password (same as the user name) is used.
 
 [Personal Blog](http://www.legendu.net)   |   [GitHub](https://github.com/dclong)   |   [Bitbucket](https://bitbucket.org/dclong/)   |   [LinkedIn](http://www.linkedin.com/in/ben-chuanlong-du-1239b221/)
 
+## [Related Images](http://www.legendu.net/en/blog/my-docker-images/)
