@@ -10,12 +10,12 @@ please use the **conda3** (correspond to the latest tag) branch instead.
 
 ## Detailed Information
 
-OS: Ubuntu 18.04
+OS: Ubuntu 18.04  
 Desktop Environment: None  
 Remote Desktop: None  
 Jupyter Notebook: 5.6.0  
 NodeJS: 8.11.3  
-JupyterLab: 0.34.11  
+JupyterLab: 0.35.4  
 JupyterHub: 0.9.3  
 Jupyter Kernels:  
 - Python 3.6.6
