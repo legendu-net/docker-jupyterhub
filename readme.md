@@ -13,12 +13,12 @@ please use the **conda3** (correspond to the latest tag) branch instead.
 OS: Ubuntu 18.04  
 Desktop Environment: None  
 Remote Desktop: None  
-Jupyter Notebook: 5.6.0  
-NodeJS: 8.11.3  
+Jupyter Notebook: 5.7.0  
+NodeJS: 10.15.0   
 JupyterLab: 0.35.4  
 JupyterHub: 0.9.3  
 Jupyter Kernels:  
-- Python 3.6.6
+- Python 3.6
 
 ## Usage in Linux/Unix
 
@@ -35,7 +35,7 @@ please refer to the offical Docker doc [Install Docker](https://docs.docker.com/
 
 ### Pull the Docker Image
 ```
-docker pull dclong/jupyterhub-ds
+docker pull dclong/jupyterhub
 ```
 For people in mainland of China,
 please refer to the post
@@ -44,7 +44,7 @@ on ways to speed up pushing/pulling of Docker images.
 If you don't bother,
 then just use the command below.
 ```
-docker pull registry.docker-cn.com/dclong/jupyterhub-ds
+docker pull registry.docker-cn.com/dclong/jupyterhub
 ```
 
 ### Start a Container
@@ -84,8 +84,8 @@ docker run -d \
     -e DOCKER_GROUP_ID=`id -g` \
     -e DOCKER_ADMIN_USER=`id -un` \
     -e USER_MEM_LIMIT=4G \
-    -v /workdir:/workdir \
-    -v /home:/home_host \
+    -v `pwd`:/workdir \
+    -v `dirname $HOME`:/home_host \
     dclong/jupyterhub
 ```
 
@@ -100,7 +100,7 @@ docker run -d \
     -e DOCKER_ADMIN_USER=`id -un` \
     -e USER_MEM_LIMIT=4G \
     -v `pwd`:/workdir \
-    -v /home:/home_host \
+    -v `dirname $HOME`:/home_host \
     dclong/jupyterhub
 ```
 ## Use the JupyterHub Server
