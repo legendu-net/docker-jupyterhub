@@ -68,14 +68,14 @@ Keep the default if you don't know what are the best to use.
     By default, it's the user to be created in the container.
 - `USER_MEM_LIMIT`: The memory limit that each user can use.
     Note that this optional is not in effect now.
- 
-The root directory of JupyterLab/Jupyter notebooks is `/jupyter` in the container.
+The root directory of JupyterLab/Jupyter notebooks is `/workdir` in the container.
 You can mount directory on the host to it as you wish.
-In the illustration command below,
-I have the directory `/wwwroot` on the host mounted to `/jupyter` in the container.
-
+The following command starts a container 
+and mounts the current working directory and `/home` on the host machine 
+to `/workdir` and `/home_host` in the container respectively.
 ```
 docker run -d \
+    --name jupyterhub \
     --log-opt max-size=50m \
     -p 8000:8000 \
     -e DOCKER_USER=`id -un` \
@@ -88,10 +88,14 @@ docker run -d \
     -v `dirname $HOME`:/home_host \
     dclong/jupyterhub
 ```
-
+The following command (only works on Linux) does the same as the above one 
+except that it limits the use of CPU and memory.
 ```
 docker run -d \
+    --name jupyterhub \
     --log-opt max-size=50m \
+    --memory=$(($(head -n 1 /proc/meminfo | awk '{print $2}') * 4 / 5))k \
+    --cpus=$((`nproc` - 1)) \
     -p 8000:8000 \
     -e DOCKER_USER=`id -un` \
     -e DOCKER_USER_ID=`id -u` \
@@ -102,7 +106,7 @@ docker run -d \
     -v `pwd`:/workdir \
     -v `dirname $HOME`:/home_host \
     dclong/jupyterhub
-```
+``` 
 ## Use the JupyterHub Server
 
 Open your browser and and visit `your_host_ip:8000`
