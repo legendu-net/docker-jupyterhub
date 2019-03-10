@@ -5,8 +5,6 @@ JupyterHub in Docker.
 [dclong/jupyterhub-ds](https://hub.docker.com/r/dclong/jupyterhub-ds/)
 for data science related work.**
 Note: Python packages in this version are installed using pip.
-If you prefer managing Python packages using conda,
-please use the **conda3** (correspond to the latest tag) branch instead.
 
 ## Detailed Information
 
