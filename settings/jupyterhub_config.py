@@ -488,6 +488,7 @@ c.Spawner.env_keep = [
 #  This needs to be supported by your spawner for it to work.
 # c.Spawner.mem_limit = '6G'
 # c.SystemdSpawner.mem_limit = '6G'
+# c.SystemdSpawner.mem_limit = 'USER_MEM_LIMIT'
 
 ## Path to the notebook directory for the single-user server.
 #  
@@ -623,7 +624,7 @@ c.Spawner.notebook_dir = '/workdir'
 #  Admin access should be treated the same way root access is.
 #  
 #  Defaults to an empty set, in which case no user has admin access.
-c.Authenticator.admin_users = {}
+c.Authenticator.admin_users = set(['DOCKER_ADMIN_USERS'])
 
 ## Automatically begin the login process
 #  
