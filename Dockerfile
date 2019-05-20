@@ -1,7 +1,8 @@
 FROM dclong/jupyterlab
 
 RUN npm install -g configurable-http-proxy \
-    && pip3 install jupyterhub
+    && npm cache clean \
+    && pip3 install --no-cache-dir jupyterhub
 
 ADD settings/jupyter_notebook_config.py /etc/jupyter/
 ADD settings/jupyterhub_config.py /etc/jupyterhub/
