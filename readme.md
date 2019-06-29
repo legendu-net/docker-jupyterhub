@@ -1,4 +1,4 @@
-# [dclong/jupyterhub](https://hub.docker.com/r/dclong/jupyterhub/)
+# dclong/jupyterhub [@DockerHub](https://hub.docker.com/r/dclong/jupyterhub/) | [@GitHub](https://github.com/dclong/docker-jupyterhub)
 
 JupyterHub in Docker.
 **It is recommended that you use the image
