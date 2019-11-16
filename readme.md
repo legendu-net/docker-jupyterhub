@@ -28,7 +28,7 @@ docker run -d \
     -e DOCKER_ADMIN_USER=$(id -un) \
     -v $(pwd):/workdir \
     -v $(dirname $HOME):/home_host \
-    dclong/jupyterhub
+    dclong/jupyterhub /scripts/sys/init.sh
 ```
 The following command (only works on Linux) does the same as the above one 
 except that it limits the use of CPU and memory.
@@ -46,7 +46,7 @@ docker run -d \
     -e DOCKER_ADMIN_USER=$(id -un) \
     -v $(pwd):/workdir \
     -v $(dirname $HOME):/home_host \
-    dclong/jupyterhub
+    dclong/jupyterhub /scripts/sys/init.sh
 ```
 
 ## [Detailed Information](http://www.legendu.net/en/blog/my-docker-images/#list-of-images-and-detailed-information) 
