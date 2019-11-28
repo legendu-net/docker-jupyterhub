@@ -48,13 +48,13 @@ docker run -d \
     -v $(dirname $HOME):/home_host \
     dclong/jupyterhub /scripts/sys/init.sh
 ```
-## [Log Information](http://www.legendu.net/en/blog/my-docker-images/#docker-container-logs)
-
-## [Detailed Information](http://www.legendu.net/en/blog/my-docker-images/#list-of-images-and-detailed-information) 
-
 ## [Use the JupyterHub Server](http://www.legendu.net/en/blog/my-docker-images/#use-the-jupyterhub-server)
 
 ## [Add a New User to the JupyterHub Server](http://www.legendu.net/en/blog/my-docker-images/#add-a-new-user-to-the-jupyterhub-server)
+
+## [Log Information](http://www.legendu.net/en/blog/my-docker-images/#docker-container-logs)
+
+## [Detailed Information](http://www.legendu.net/en/blog/my-docker-images/#list-of-images-and-detailed-information) 
 
 ## [Known Issues](http://www.legendu.net/en/blog/my-docker-images/#known-issues)
 
