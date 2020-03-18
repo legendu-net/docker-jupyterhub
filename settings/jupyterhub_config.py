@@ -733,7 +733,6 @@ c.Authenticator.admin_users = set(['DOCKER_ADMIN_USER'])
 #  If any errors are encountered when opening/closing PAM sessions, this is
 #  automatically set to False.
 #c.PAMAuthenticator.open_sessions = True
-c.PAMAuthenticator.open_sessions = False
 
 ## The name of the PAM service to use for authentication
 #c.PAMAuthenticator.service = 'login'
