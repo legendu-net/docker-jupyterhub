@@ -1,4 +1,6 @@
+# NAME: dclong/jupyterhub
 FROM dclong/jupyterlab
+# GIT: https://github.com/dclong/docker-jupyterlab.git
 
 RUN npm install -g configurable-http-proxy \
     && pip3 install --no-cache-dir jupyterhub \
