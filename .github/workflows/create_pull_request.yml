@@ -19,4 +19,5 @@ jobs:
         with:
           title: Merge dev into main
           branch: dev
+          assignees: dclong  
  
