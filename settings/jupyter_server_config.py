@@ -31,8 +31,8 @@ def get_cpu_limit() -> float:
         return os.cpu_count()
 
 
-#c.NotebookApp.ResourceUseDisplay.mem_limit = get_mem_limit()
-#c.NotebookApp.ResourceUseDisplay.track_cpu_percent = True
-#c.NotebookApp.ResourceUseDisplay.cpu_limit = get_cpu_limit()
+#c.ServerApp.ResourceUseDisplay.mem_limit = get_mem_limit()
+#c.ServerApp.ResourceUseDisplay.track_cpu_percent = True
+#c.ServerApp.ResourceUseDisplay.cpu_limit = get_cpu_limit()
 #------------------------------------------------------------------------------
 print("\nSummary of Jupyter Configuration:\n", c, "\n", sep="")
