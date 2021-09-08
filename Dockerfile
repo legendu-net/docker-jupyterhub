@@ -4,7 +4,7 @@ FROM dclong/jupyterlab
 
 RUN npm install -g configurable-http-proxy \
     && pip3 install jupyterhub \
-    && pip3 cache purge \
+    && /scripts/sys/purge_cache.sh \
     && npm cache clean --force
 
 ADD settings/jupyter_server_config.py /etc/jupyter/
