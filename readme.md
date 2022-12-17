@@ -6,6 +6,8 @@ JupyterHub in Docker.
 for data science related work.**
 Note: Python packages in this version are installed using pip instead of conda.
 
+## [Recommended Docker Images](http://www.legendu.net/en/blog/my-docker-images/#recommended-docker-images) 
+
 ## Prerequisite
 You need to [install Docker](http://www.legendu.net/en/blog/docker-installation/) before you use this Docker image.
 
