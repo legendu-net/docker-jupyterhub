@@ -1,4 +1,42 @@
-# Configuration file for jupyterhub.
+"""Configuration file for jupyterhub.
+"""
+import sys
+import os
+from pathlib import Path
+
+
+def get_mem_total() -> int:
+    with Path("/proc/meminfo").open("r") as fin:
+        for line in fin:
+            if line.startswith("MemTotal:"):
+                mem = line[9:].strip().replace(" ", "").upper().replace("GB", "0" * 9) \
+                    .replace("MB", "0" * 6).replace("KB", "0" * 3).replace("B", "")
+                return int(mem)
+    return sys.maxsize
+
+
+def get_mem_limit() -> int:
+    mem_limit = get_mem_total()
+    paths = [
+        Path("/sys/fs/cgroup/memory/memory.limit_in_bytes"),
+        Path("/sys/fs/cgroup/memory.max"),
+    ] 
+    for path in paths:
+        if path.is_file():
+            mem_limit_cgroup = int(path.read_text())
+            mem_limit = min(mem_limit, mem_limit_cgroup)
+    return mem_limit
+
+
+def get_cpu_limit() -> float:
+    cpu_limit = os.cpu_count()
+    path = Path("/sys/fs/cgroup/cpu.max")
+    if path.is_file():
+        cpu_limit_cgroup = [int(val) for val in path.read_text().strip().split()]
+        if len(cpu_limit_cgroup) == 2:
+            cpu_limit = min(cpu_limit, cpu_limit_cgroup[0] / cpu_limit_cgroup[1])
+    return 
+
 
 #------------------------------------------------------------------------------
 # Application(SingletonConfigurable) configuration
@@ -385,7 +423,8 @@ c.JupyterHub.port = 8000
 #  cpu-cores.
 #  
 #  This needs to be supported by your spawner for it to work.
-#c.Spawner.cpu_limit = None
+#c.ServerApp.ResourceUseDisplay.track_cpu_percent = True
+#c.Spawner.cpu_limit = get_cpu_limit()
 
 ## Enable debug-logging of the single-user server
 #c.Spawner.debug = False
@@ -487,7 +526,7 @@ c.Spawner.env_keep = [
 #  to allocate this much memory - only that it can not allocate more than this.
 #  
 #  This needs to be supported by your spawner for it to work.
-# c.Spawner.mem_limit = '6G'
+c.Spawner.mem_limit = get_mem_limit()
 # c.SystemdSpawner.mem_limit = '6G'
 # c.SystemdSpawner.mem_limit = 'USER_MEM_LIMIT'
 
