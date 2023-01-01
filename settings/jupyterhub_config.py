@@ -11,7 +11,8 @@ def get_mem_total() -> int:
             if line.startswith("MemTotal:"):
                 mem = line[9:].strip().replace(" ", "").upper().replace("GB", "0" * 9) \
                     .replace("MB", "0" * 6).replace("KB", "0" * 3).replace("B", "")
-                return int(mem)
+                if mem.isdigit():
+                    return int(mem)
     return sys.maxsize
 
 
@@ -23,8 +24,10 @@ def get_mem_limit() -> int:
     ]
     for path in paths:
         if path.is_file():
-            mem_limit_cgroup = int(path.read_text(encoding="utf-8"))
-            mem_limit = min(mem_limit, mem_limit_cgroup)
+            mem_limit_cgroup = path.read_text(encoding="utf-8").strip()
+            if mem_limit_cgroup.isdigit():
+                mem_limit_cgroup = int(mem_limit_cgroup)
+                mem_limit = min(mem_limit, mem_limit_cgroup)
     return mem_limit
 
 
@@ -32,10 +35,10 @@ def get_cpu_limit() -> float:
     cpu_limit = os.cpu_count()
     path = Path("/sys/fs/cgroup/cpu.max")
     if path.is_file():
-        cpu_limit_cgroup = [
-            int(val) for val in path.read_text(encoding="utf-8").strip().split()
-        ]
-        if len(cpu_limit_cgroup) == 2:
+        cpu_limit_cgroup = path.read_text(encoding="utf-8").strip().split()
+        if len(cpu_limit_cgroup) == 2 and all(val.isdigit()
+                                              for val in cpu_limit_cgroup):
+            cpu_limit_cgroup = [int(val) for val in cpu_limit_cgroup]
             cpu_limit = min(cpu_limit,
                             cpu_limit_cgroup[0] / cpu_limit_cgroup[1])
     return cpu_limit

@@ -1,3 +1,5 @@
 image: dclong/gitpod
 tasks:
   - command: nvim --headless +"call dein#install()" +qall
+  - command: echo "\n. /scripts/path.sh\n" >> ~/.bashrc
+  
