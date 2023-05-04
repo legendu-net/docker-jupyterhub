@@ -474,6 +474,7 @@ c.Spawner.env_keep = [
     'JAVA_HOME',
     'M2_HOME',
     'RUSTUP_HOME',
+    "HISTTIMEFORMAT",
 ]
 
 ## Extra environment variables to set for the single-user server's process.
