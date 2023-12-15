@@ -3,7 +3,7 @@ FROM dclong/jupyterlab
 # GIT: https://github.com/legendu-net/docker-jupyterlab.git
 
 RUN npm install -g configurable-http-proxy \
-    && pip3 install "SQLAlchemy<2.0.0" "jupyterhub<4.0.0" \
+    && pip3 install "SQLAlchemy<2.0.0" "jupyterhub<4.1.0" \
     && /scripts/sys/purge_cache.sh \
     && npm cache clean --force
 
